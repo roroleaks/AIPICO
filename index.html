@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Clinical Question Assistant — OB/GYN &amp; Infertility</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header>
+  <h1>From Clinical Uncertainty to Answerable Questions</h1>
+  <p>AI-Assisted Clinical Question Formulation &mdash; Obstetrics, Gynecology &amp; Infertility</p>
+</header>
+
+<main>
+
+<section class="card" id="inputCard">
+  <span class="step-label">Step 1 &middot; Clinical Input</span>
+  <p class="hint">Type a clinical uncertainty exactly as it comes to mind &mdash; keywords or free text.</p>
+  <textarea id="clinicalInput" placeholder="e.g., recurrent implantation failure aspirin IVF"></textarea>
+  <button class="primary" onclick="analyze()">Analyze clinical uncertainty</button>
+  <div class="examples">
+    Try:
+    <span onclick="fillExample('PCOS infertility letrozole clomiphene')">PCOS + letrozole vs clomiphene</span>
+    <span onclick="fillExample('endometriosis infertility surgery before IVF live birth')">Endometriosis surgery before IVF</span>
+    <span onclick="fillExample('cerclage short cervix preterm birth')">Cerclage / short cervix</span>
+    <span onclick="fillExample('fibroids heavy menstrual bleeding ultrasound diagnosis')">Fibroids diagnosis</span>
+  </div>
+  <div class="pipeline" id="pipeline"></div>
+</section>
+
+<section class="card hidden" id="intentCard">
+  <span class="step-label">Step 2 &middot; Clinical Intent Recognition</span>
+  <div id="intentBody"></div>
+</section>
+
+<section class="card hidden" id="clarifyCard">
+  <span class="step-label">Step 3 &middot; Interactive Clarification</span>
+  <div id="clarifyBody"></div>
+</section>
+
+<section class="card hidden" id="questionCard">
+  <span class="step-label">Step 4 &middot; Structured Clinical Question</span>
+  <div id="questionBody"></div>
+</section>
+
+<section class="card hidden" id="qualityCard">
+  <span class="step-label">Step 5 &middot; Quality Assessment</span>
+  <div id="qualityBody"></div>
+</section>
+
+<section class="card hidden" id="searchCard">
+  <span class="step-label">Step 6 &middot; Search Strategy (PubMed)</span>
+  <div id="searchBody"></div>
+</section>
+
+</main>
+
+<footer>Prototype v0.1 &mdash; offline rule-based engine. Educational tool: always verify formulated questions clinically.</footer>
+
+<script src="app.js"></script>
+</body>
+</html>
